@@ -1,8 +1,37 @@
+:root {
+  --map-width: 80%;
+  --map-height: 500px;
+  --map-max-height: 250px;
+  --map-h-margin: 20px;
+  --links-font-size: 11px;
+  --links-letter-space: 0px;
+}
+
 html, body {
     padding: 0;
     margin: 0;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
-.simpleMap {
+.map {
+  width: var(--map-width);
+  height: var(--map-height);
+  margin: var(--map-h-margin) auto;
+}
+
+.leaflet-search-control-info {
+    max-height: var(--map-max-height);
+    overflow-y: scroll;
+}
+
+small a, small span {
+  font-size: var(--links-font-size);
+  text-decoration: none;
+  letter-spacing: var(--links-letter-space);
+  text-transform: uppercase;
+}
+
+footer {
   width: 100vw;
-  height: 100vh
+  height: 100px;
 }

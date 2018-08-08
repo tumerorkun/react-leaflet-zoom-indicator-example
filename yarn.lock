@@ -3636,14 +3636,13 @@ react-dom@^15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-leaflet-zoom-indicator@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/react-leaflet-zoom-indicator/-/react-leaflet-zoom-indicator-0.0.5.tgz#68bd9137c05cf927647ea84221361a9a8c10d032"
-  dependencies:
-    leaflet "^1.3.3"
-    react "^15.6.2"
-    react-dom "^15.6.2"
-    react-leaflet "^1.9.1"
+react-leaflet-search@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet-search/-/react-leaflet-search-0.3.1.tgz#a177f06192f520a05b41e61a35927b5d1dad9ae4"
+
+react-leaflet-zoom-indicator@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet-zoom-indicator/-/react-leaflet-zoom-indicator-0.1.1.tgz#9b07262694feb2d5e3706aa9315917b9985ce71c"
 
 react-leaflet@^1.9.1:
   version "1.9.1"
