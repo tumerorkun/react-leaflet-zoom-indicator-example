@@ -3636,9 +3636,13 @@ react-dom@^15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-leaflet-search@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/react-leaflet-search/-/react-leaflet-search-0.3.1.tgz#a177f06192f520a05b41e61a35927b5d1dad9ae4"
+react-leaflet-grouped-layer-control@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/react-leaflet-grouped-layer-control/-/react-leaflet-grouped-layer-control-0.0.7.tgz#058afe7985780eda6c6f2fef54114edd6204c587"
+
+react-leaflet-search@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/react-leaflet-search/-/react-leaflet-search-0.3.4.tgz#975dc3dfc07096a1e4426ebafd8534ed0d2cb233"
 
 react-leaflet-zoom-indicator@^0.1.1:
   version "0.1.1"
