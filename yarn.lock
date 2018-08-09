@@ -3636,6 +3636,10 @@ react-dom@^15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
+react-leaflet-gridcanvas@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet-gridcanvas/-/react-leaflet-gridcanvas-0.0.1.tgz#8fc5d309c55dd0c3fe4ed56044895b99a20294fe"
+
 react-leaflet-grouped-layer-control@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-leaflet-grouped-layer-control/-/react-leaflet-grouped-layer-control-0.0.7.tgz#058afe7985780eda6c6f2fef54114edd6204c587"

@@ -1,13 +1,13 @@
 import './index.css'
-import 'leaflet'
 import React from "react";
 import ReactDOM from "react-dom";
 import { Map, TileLayer } from 'react-leaflet'
-import { ReactLeafletGroupedLayerControl } from 'react-leaflet-grouped-layer-control'
 
 // My Components
-import { ReactLeafletZoomIndicator } from 'react-leaflet-zoom-indicator'
+import { GridCanvas } from 'react-leaflet-gridcanvas'
 import { ReactLeafletSearch } from 'react-leaflet-search'
+import { ReactLeafletZoomIndicator } from 'react-leaflet-zoom-indicator'
+import { ReactLeafletGroupedLayerControl } from 'react-leaflet-grouped-layer-control'
 
 
 const MapContainer = props => <Map
@@ -26,6 +26,7 @@ const SeperatorAndLinks = props => <div>
             <span> - </span>
             <a href={`https://www.npmjs.com/package/${props.name}`}>npm</a>
         </small> </h2>
+        <p>{props.p}</p>
     </div>
 
 class App extends React.Component {
@@ -33,7 +34,7 @@ class App extends React.Component {
         super(props)
         this.state = {
             count:0,
-            maxZoom:13,
+            maxZoom:18,
             maxBounds:[[-90, -180], [90, 180]],
             bounds: [
               {
@@ -127,46 +128,51 @@ class App extends React.Component {
         this.overlaysAllTogether = [...this.overlays];
         this.tileLayerUrlAllTogether = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         this.tileLayerUrl = 'http://www.google.cn/maps/vt?lyrs=s@189&gl=tr&x={x}&y={y}&z={z}'
-        this.maps = [
-            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            'http://www.google.cn/maps/vt?lyrs=s@189&gl=tr&x={x}&y={y}&z={z}',
-            'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
-        ];
+        this.maps = {
+            'tile-texture-1':'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            'tile-texture-2': 'http://www.google.cn/maps/vt?lyrs=s@189&gl=tr&x={x}&y={y}&z={z}',
+            'tile-texture-3': 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+        };
     }
 
+    getNextBaseLayer(nextTitle) {
+        return this.maps[this.baseLayers.find(e => e.name === nextTitle).name] || this.maps[this.baseLayers[0].name];
+    }
 
     onBaseLayerChangeAllTogether(baseTitle) {
         if (baseTitle === this.checkedBaseLayerAllTogether) { return false; }
-        console.warn(baseTitle)
-        this.tileLayerUrlAllTogether = this.maps[this.baseLayers.map((e, i) => { return (e.name === baseTitle) ? String(i) : false }).filter(e => e)[0] | 0] || this.maps[0];
+        this.tileLayerUrlAllTogether = this.getNextBaseLayer(baseTitle);
         this.checkedBaseLayerAllTogether = baseTitle;
-        this.setState({count: ++this.state.count})
+        this.setState({ count: ++this.state.count });
     }
     onOverlayChangeAllTogether(newOverlays) {
         this.overlaysAllTogether = [...newOverlays];
-        this.forceUpdate();
+        this.setState({ count: ++this.state.count });
     }
 
     onBaseLayerChange(baseTitle) {
         if (baseTitle === this.checkedBaseLayer) { return false; }
-        console.warn(baseTitle)
-        this.tileLayerUrl = this.maps[this.baseLayers.map((e, i) => { return (e.name === baseTitle) ? String(i) : false }).filter(e => e)[0] | 0] || this.maps[0];
+        this.tileLayerUrl = this.getNextBaseLayer(baseTitle);
         this.checkedBaseLayer = baseTitle;
-        this.setState({count: ++this.state.count})
+        this.setState({ count: ++this.state.count });
     }
     onOverlayChange(newOverlays) {
         this.overlays = [...newOverlays];
-        this.forceUpdate();
+        this.setState({ count: ++this.state.count });
     }
 
-    render (){
+    render() {
         return (
             <div>
-                <h1> React Leaflet Component Examples </h1>
-                <br />
+                <h1> React Leaflet Component Examples </h1> <br />
                 <h2> All components together </h2>
                 <MapContainer options={this.state}>
                     <TileLayer noWrap={true} url={this.tileLayerUrlAllTogether} />
+                    {
+                        this.overlaysAllTogether.filter(e => e.name === 'grid-1')[0].checked ?
+                            <GridCanvas color={'black'} centerText={({ z }) => `Zoom: ${z}`} />
+                            : null
+                    }
                     <ReactLeafletZoomIndicator head='zoom:' position='topleft' />
                     <ReactLeafletSearch position="topleft" />
                     <ReactLeafletGroupedLayerControl
@@ -178,26 +184,47 @@ class App extends React.Component {
                         onBaseLayerChange={this.onBaseLayerChangeAllTogether.bind(this)}
                         onOverlayChange={this.onOverlayChangeAllTogether.bind(this)}/>
                 </MapContainer>
-
-                    <SeperatorAndLinks title={'Zoom Indicator'} name={'react-leaflet-zoom-indicator'} />
+                {
+                    /**
+                     * ZOOM INDICATOR
+                     */
+                }
+                <SeperatorAndLinks title={'Zoom Indicator'} name={'react-leaflet-zoom-indicator'} />
 
                 <MapContainer options={this.state}>
                     <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                     <ReactLeafletZoomIndicator head='zoom:' position='topleft' />
                 </MapContainer>
 
-                    <SeperatorAndLinks title={'Search'} name={'react-leaflet-search'} />
+                {
+                    /**
+                     * SEARCH
+                     */
+                }
+                <SeperatorAndLinks title={'Search'} name={'react-leaflet-search'} />
 
                 <MapContainer options={this.state}>
                     <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                     <ReactLeafletSearch position="topleft" />
                 </MapContainer>
-
-                    <SeperatorAndLinks title={'Grouped Layer Control'} name={'react-leaflet-grouped-layer-control'} />
-                    <p> handleOverlayChange not implemented on this example but its working </p>
+                {
+                    /**
+                     * GROUPED LAYER CONTROL
+                     */
+                }
+                <SeperatorAndLinks
+                    title={'Grouped Layer Control'}
+                    name={'react-leaflet-grouped-layer-control'}
+                    p={' handleOverlayChange not implemented on this example but its working '}/>
 
                 <MapContainer options={this.state}>
                     <TileLayer noWrap={true} url={this.tileLayerUrl} />
+                    {
+                        this.overlays.filter(e => e.name === 'grid-1')[0].checked ?
+                            <GridCanvas centerText={() => {
+                                return `zoom: #z`
+                            }}/> : null
+                    }
                     <ReactLeafletGroupedLayerControl
                         position="topleft"
                         baseLayers={this.baseLayers}
@@ -207,13 +234,23 @@ class App extends React.Component {
                         onBaseLayerChange={this.onBaseLayerChange.bind(this)}
                         onOverlayChange={this.onOverlayChange.bind(this)}/>
                 </MapContainer>
+                {
+                    /**
+                     * GRIDCANVAS
+                     */
+                }
+                <SeperatorAndLinks title={'Grid'} name={'react-leaflet-gridcanvas'} />
 
-                <footer>
-
-                </footer>
+                <MapContainer options={this.state}>
+                    <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                    <GridCanvas color={'black'} centerText={() => `zoom: #z`}/>
+                </MapContainer>
+                <footer></footer>
             </div>
         );
     }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
+
+[...document.getElementsByClassName('leaflet-control-attribution')].map(e => (e.innerHTML = ''));
