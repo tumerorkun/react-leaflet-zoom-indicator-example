@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tumerorkun/react-leaflet-components-examples.svg?branch=master)](https://travis-ci.org/tumerorkun/react-leaflet-components-examples)
+
 # react-leaflet-components-examples
 React Leaflet Components Examples
 
