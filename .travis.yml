@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 10
+install:
+  - npm i -g npm
+  - npm i -g yarn
+  - yarn
+script:
+  - yarn build
+  - yarn build:prod

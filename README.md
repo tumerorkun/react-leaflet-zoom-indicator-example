@@ -1,5 +1,5 @@
-# react-leaflet-zoom-indicator-example
-React Leaflet Zoom Idicator Example
+# react-leaflet-components-examples
+React Leaflet Components Examples
 
 
 [Working Demo](https://tumerorkun.github.io/react-leaflet-components-examples/)
