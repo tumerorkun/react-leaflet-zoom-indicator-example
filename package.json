@@ -1,7 +1,7 @@
 {
-  "name": "react-leaflet-zoom-indicator-example",
+  "name": "react-leaflet-components-examples",
   "version": "1.0.0",
-  "description": "REact Leaflet Zoom Idicator Example",
+  "description": "React Leaflet components Examples",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
@@ -10,30 +10,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tumerorkun/react-leaflet-zoom-indicator-example.git"
+    "url": "git+https://github.com/tumerorkun/react-leaflet-components-examples.git"
   },
   "keywords": [
     "react",
     "react-leaflet",
-    "leaflet",
-    "zoom",
-    "indicator",
-    "display"
+    "leaflet"
   ],
   "author": "Orkun Tumer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tumerorkun/react-leaflet-zoom-indicator-example/issues"
+    "url": "https://github.com/tumerorkun/react-leaflet-components-examples/issues"
   },
-  "homepage": "https://github.com/tumerorkun/react-leaflet-zoom-indicator-example#readme",
+  "homepage": "https://github.com/tumerorkun/react-leaflet-components-examples#readme",
   "dependencies": {
     "leaflet": "^1.3.3",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-leaflet": "^1.9.1",
-    "react-leaflet-gridcanvas": "^0.0.1",
-    "react-leaflet-grouped-layer-control": "^0.0.7",
-    "react-leaflet-search": "^0.3.4",
+    "react-leaflet-gridcanvas": "^0.0.3",
+    "react-leaflet-grouped-layer-control": "^0.0.12",
+    "react-leaflet-search": "^0.3.5",
     "react-leaflet-zoom-indicator": "^0.1.1"
   },
   "devDependencies": {
