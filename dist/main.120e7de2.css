@@ -179,6 +179,12 @@ footer {
   /* padding: 13 0px; */
 }
 
+.leaflet-search-popup {
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+}
+
 .leaflet-zoom-indicator-control {
     width: auto;
     padding: 0 5px 0 7px;

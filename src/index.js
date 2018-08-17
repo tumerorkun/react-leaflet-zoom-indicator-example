@@ -164,7 +164,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1> React Leaflet Component Examples </h1> <br />
+                <h1> React Leaflet Component Examples </h1>
+                <p> React@15.6.2, React-Leaflet@1.9.1, Leaflet@1.3.3</p>
+                <br />
                 <h2> All components together </h2>
                 <MapContainer options={this.state}>
                     <TileLayer noWrap={true} url={this.tileLayerUrlAllTogether} />
@@ -174,7 +176,7 @@ class App extends React.Component {
                             : null
                     }
                     <ReactLeafletZoomIndicator head='zoom:' position='topleft' />
-                    <ReactLeafletSearch position="topleft" />
+                    <ReactLeafletSearch position="topleft" showPopup={true}/>
                     <ReactLeafletGroupedLayerControl
                         position="topleft"
                         baseLayers={this.baseLayers}
@@ -205,7 +207,10 @@ class App extends React.Component {
 
                 <MapContainer options={this.state}>
                     <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                    <ReactLeafletSearch position="topleft" />
+                    <ReactLeafletSearch
+                        position="topleft"
+                        inputPlaceholder='Custom Placeholder'
+                        showPopup={true} />
                 </MapContainer>
                 {
                     /**
