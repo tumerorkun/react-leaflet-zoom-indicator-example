@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "rimraf dist && webpack --mode development",
-    "predeploy":"yarn build:prod",
+    "updatemypack": "yarn add react-leaflet-search@latest react-leaflet-gridcanvas@latest react-leaflet-grouped-layer-control@latest react-leaflet-zoom-indicator@latest",
+    "predeploy": "yarn updatemypack && yarn build:prod",
     "deploy": "gh-pages -d dist",
     "build:prod": "rimraf dist && webpack --mode production"
   },
@@ -32,7 +33,7 @@
     "react-leaflet": "^1.9.1",
     "react-leaflet-gridcanvas": "^0.0.3",
     "react-leaflet-grouped-layer-control": "^0.0.12",
-    "react-leaflet-search": "^0.4.2",
+    "react-leaflet-search": "^0.4.3",
     "react-leaflet-zoom-indicator": "^0.1.1"
   },
   "devDependencies": {
