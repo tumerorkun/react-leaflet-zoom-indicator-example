@@ -210,7 +210,9 @@ class App extends React.Component {
                     <ReactLeafletSearch
                         position="topleft"
                         inputPlaceholder='Custom Placeholder'
-                        showPopup={true} />
+                        showPopup={true}
+                        closeResultsOnClick={true}
+                    />
                 </MapContainer>
                 {
                     /**
