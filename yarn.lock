@@ -3639,17 +3639,17 @@ react-dom@^15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-leaflet-gridcanvas@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/react-leaflet-gridcanvas/-/react-leaflet-gridcanvas-0.0.3.tgz#ed45dbe7adf7ff5273d011734430ec9d45c897fc"
+react-leaflet-gridcanvas@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-leaflet-gridcanvas/-/react-leaflet-gridcanvas-0.1.0.tgz#7cf4f776751486ded53687299c52c78890f4b8c9"
 
 react-leaflet-grouped-layer-control@^0.0.12:
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/react-leaflet-grouped-layer-control/-/react-leaflet-grouped-layer-control-0.0.12.tgz#b861760739f17613dd7582d89630a1d490468150"
 
-react-leaflet-search@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-leaflet-search/-/react-leaflet-search-0.5.0.tgz#ca3517aa8d81f73aab2e4eb3ff67e7e8ab662ad8"
+react-leaflet-search@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet-search/-/react-leaflet-search-0.5.1.tgz#1f0b7bde1362af022837d436042eaf04d77a899f"
 
 react-leaflet-zoom-indicator@^0.1.1:
   version "0.1.1"
